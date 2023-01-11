@@ -1,0 +1,68 @@
+@mixin setBorder($color:black){
+  border:2px solid $color;
+}
+
+*{
+  margin:0;padding:0;box-sizing: border-box;
+}
+
+body{
+  width:100%;
+}
+.homepage{
+  position:relative;
+
+  .hero{
+    height:calc(100vh + 20px);//testing
+    background-image: url("./src/assets/Kumarakom Lake Resort — Kerala, India.jpg");
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position:center 18%;//testing
+    background-size:cover;
+  }
+  .navbar{
+    @include setBorder(black);
+    width:100%;
+    position:fixed;
+    top:0px;
+    height:40px;
+    background-color: transparent;
+    // background-color: black;
+    z-index: 1;
+    color:white;
+  }
+  
+  #start-booking-btn{
+    z-index: 0;
+    padding:5px 10px;
+    font-size:1.2rem;
+    height:40px;
+    position:absolute;
+    top:calc(100vh);//testing
+    margin-left:50%;
+    transform:translate(-50%,0);
+  }
+
+  .gallery{
+    height:150vh;//testing
+    background-color:bisque;
+  }
+
+  .experiences{
+    background-color:burlywood;
+    height:300px;//testing
+  }
+
+  .contact{
+    background-color: black;
+    color:white;
+    height:50vh;//testing
+  }
+}
+
+
+
+.sticky{
+  background-color:black;
+  color:white;
+}
