@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import GalleryItem from "../components/galleryItem";
+import places from "../places"
 import bars from "../assets/bars-solid.svg";
 import coco from "../assets/coco.png";
 
@@ -18,15 +19,28 @@ function Homepage() {
   window.onscroll = () => {
     const btn=document.querySelector("#start-booking-btn");
     const navbar=document.querySelector(".navbar");
+    //get the distance from top of the window
     const btnHeight=btn.getBoundingClientRect().top;
 
     if(btnHeight<=20){
       navbar.style.backgroundColor = "white";
+      navbar.style.color = "black";
+      
     }
     else{
-      navbar.style.backgroundColor = "rgba(255,255,255,0.5)";
+      navbar.style.backgroundColor = "rgba(37, 37, 37, 0.304)";
+      navbar.style.color = "white";
     }
   }
+
+  const imageItems = places.map((item) => {
+    return (
+      <GalleryItem
+        key = {item.id}
+        data = {item}
+      />
+    )
+  })
 
   return (
     <div className="homepage">
@@ -48,8 +62,7 @@ function Homepage() {
       </button>
 
       <div className="gallery">
-        <h2>Image gallery</h2>
-        <GalleryItem/>
+        {imageItems}
       </div>
       <div className="experiences">
         <h2>Experiences of customers and families</h2>

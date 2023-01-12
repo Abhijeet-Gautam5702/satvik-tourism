@@ -31,9 +31,11 @@ body {
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(37, 37, 37, 0.304);
     position: fixed;
     top: 0px;
+    color:white;
+    font-weight:bold;
 
     ul {
       // @include setBorder(red);
@@ -87,8 +89,43 @@ body {
   }
 
   .gallery {
-    height: 150vh; //testing
-    background-color: bisque;
+    background-color: #edf7fc;
+    padding: 10px 0px;
+
+    .galleryItem{
+      // @include setBorder(red);
+      display:flex;
+      flex-flow:row wrap;
+      justify-content: center;
+      align-items: center;
+      padding:20px;
+
+      .img-box{
+        // min-width:250px;
+        // min-height:250px;
+        width:25vw;
+        height:25vw;
+        border-radius:10px;
+        overflow: hidden;
+        box-shadow:5px 5px 20px gray;
+        margin: 0 30px;
+        
+        img{
+          width:100%;
+          height:auto;
+        }
+      }
+      
+      p{
+        margin: 0 30px;
+        text-align: justify;
+        width:40vw;
+        font-size:0.8rem;
+        line-height: 4vmin;
+        // margin:10px;
+      }
+
+    }
   }
 
   .experiences {
@@ -109,6 +146,23 @@ body {
   .homepage {
     #start-booking-btn {
       width: 70%;
+    }
+  }
+}
+
+@media (max-width:690px){
+  .homepage{
+    .gallery{
+      .galleryItem{
+        .img-box{
+          width:50vw;
+          height:50vw;
+          margin-bottom:20px;
+        }
+        p{
+          width:80vw;
+        }
+      }
     }
   }
 }
