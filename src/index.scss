@@ -1,68 +1,114 @@
-@mixin setBorder($color:black){
-  border:2px solid $color;
+@mixin setBorder($color: black) {
+  border: 2px solid $color;
 }
 
-*{
-  margin:0;padding:0;box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  width:100%;
+body {
+  width: 100%;
 }
-.homepage{
-  position:relative;
+.homepage {
+  position: relative;
 
-  .hero{
-    height:calc(100vh + 20px);//testing
+  .hero {
+    height: calc(100vh + 20px); //testing
     background-image: url("./src/assets/Kumarakom Lake Resort — Kerala, India.jpg");
     overflow: hidden;
     background-repeat: no-repeat;
-    background-position:center 18%;//testing
-    background-size:cover;
-  }
-  .navbar{
-    @include setBorder(black);
-    width:100%;
-    position:fixed;
-    top:0px;
-    height:40px;
-    background-color: transparent;
-    // background-color: black;
-    z-index: 1;
-    color:white;
-  }
-  
-  #start-booking-btn{
-    z-index: 0;
-    padding:5px 10px;
-    font-size:1.2rem;
-    height:40px;
-    position:absolute;
-    top:calc(100vh);//testing
-    margin-left:50%;
-    transform:translate(-50%,0);
+    background-position: center 18%; //testing
+    background-size: cover;
   }
 
-  .gallery{
-    height:150vh;//testing
-    background-color:bisque;
+  nav {
+    z-index: 1; //above booking btn
+    height: 40px;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.4);
+    position: fixed;
+    top: 0px;
+
+    ul {
+      // @include setBorder(red);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      list-style: none;
+    }
+    .listItem {
+      font-size: 0.9rem;
+      // padding: 10px;
+      cursor: pointer;
+      margin: 0 7px;
+    }
+    .logo {
+      display: flex;
+      align-items: flex-end;
+      font-weight: 600;
+      padding: 0 7px;
+
+      .logo--img {
+        width: 30px;
+      }
+      .hotel-title {
+        font-size: 1.2rem;
+        // margin-left:3px;
+      }
+    }
   }
 
-  .experiences{
-    background-color:burlywood;
-    height:300px;//testing
+  #start-booking-btn {
+    z-index: 0; //below navbar
+    padding: 5px 10px;
+    font-size: 1rem;
+    height: 40px;
+    padding: 5px 0;
+    position: absolute;
+    top: 100vh;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+    border: none;
+    border-radius: 50px;
+    width: 40%;
+    cursor: pointer;
   }
-
-  .contact{
+  #start-booking-btn:hover {
     background-color: black;
-    color:white;
-    height:50vh;//testing
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .gallery {
+    height: 150vh; //testing
+    background-color: bisque;
+  }
+
+  .experiences {
+    background-color: burlywood;
+    height: 300px; //testing
+  }
+
+  .contact {
+    background-color: black;
+    color: white;
+    height: 50vh; //testing
   }
 }
 
 
 
-.sticky{
-  background-color:black;
-  color:white;
+@media (max-width: 600px) {
+  .homepage {
+    #start-booking-btn {
+      width: 70%;
+    }
+  }
 }
