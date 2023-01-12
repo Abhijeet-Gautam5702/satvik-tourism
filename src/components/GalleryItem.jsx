@@ -11,8 +11,9 @@ in homepage.jsx ::> import data from .js file and create an array of gallery ite
 */
 export default function GalleryItem(props) {
   const { img, desc } = props.data;
+  const styles = { border: "2px solid red" };
   return (
-    <div className="galleryItem">
+    <div style={styles} className="galleryItem">
       <div className="img-box">
         <img src={img} alt="" />
       </div>
