@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 import GalleryItem from "../components/galleryItem";
 import places from "../places";
 import carouselImg from "../carouselImg";
+import expData from "../expData"
 import bars from "../assets/bars-solid.svg";
 import coco from "../assets/coco.png";
+import ExperienceItem from "../components/ExperienceItem";
 
 function Homepage() {
   //navigate to other pages
@@ -23,39 +25,54 @@ function Homepage() {
     const btnHeight = btn.getBoundingClientRect().top;
 
     if (btnHeight <= 20) {
-      navbar.style.backgroundColor = "white";
-      navbar.style.color = "black";
+      navbar.style.backgroundColor = "black";
+      navbar.style.color = "white";
     } else {
       navbar.style.backgroundColor = "rgba(37, 37, 37, 0.304)";
       navbar.style.color = "white";
     }
   };
 
-  //create array of gallery-image-cards to display in image gallery
-  const galleryImageItems = places.map((item) => {
-    return <GalleryItem key={item.id} data={item} />;
-  });
-
+  //create array of img-items for carousel
   const carouselImgItems = carouselImg.map((item) => (
     <div key={item} className="carousel-img">
       <img src={item} alt="photo" />
     </div>
   ));
 
+  //create array of gallery-image-cards to display in image gallery
+  const galleryImageItems = places.map((item) => {
+    return <GalleryItem key={item.id} data={item} />;
+  });
+
+  //create array of experience-items
+  const expItemElements = expData.map(item => (
+    <ExperienceItem
+      key={item.id}
+      data={item}
+    />
+  ))
+
   return (
     <div className="homepage">
       <nav className="navbar">
-        <div className="logo">
+        <div  className="logo">
           {/* <img src={coco} alt="logo" className="logo--img" /> */}
-          <h1 className="hotel-title">Satvik Tourism</h1>
+          <a href="#home">
+            <h1 className="hotel-title">Satvik Tourism</h1>
+          </a>
         </div>
         <ul id="list-container">
-          <li className="listItem">Experiences</li>
-          <li className="listItem">Contact</li>
+          <a href="#exp">
+            <li className="listItem">Experiences</li>
+          </a>
+          <a href="#contact">
+            <li className="listItem">Contact</li>
+          </a>
         </ul>
       </nav>
 
-      <div className="hero"></div>
+      <div className="hero" id="home"></div>
 
       <button name="book" id="start-booking-btn" onClick={handleNavigate}>
         Book your package now
@@ -67,11 +84,18 @@ function Homepage() {
           <div className="carousel">{carouselImgItems}</div>
         </div>
         <div className="attractions">{galleryImageItems}</div>
+        <hr />
       </div>
-      <div className="experiences">
-        <h2>Experiences of customers and families</h2>
+      
+
+
+      <div id="exp" className="experiences">
+        <h1>Experiences of customers and families</h1>
+        <div className="exp-carousel">
+          {expItemElements}
+        </div>
       </div>
-      <div className="contact">
+      <div id="contact" className="contact">
         <h2>Contact section</h2>
       </div>
     </div>

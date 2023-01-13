@@ -2,6 +2,32 @@
   border: 2px solid $color;
 }
 
+@mixin styleScroll($width, $height, $bRad, $trackColor, $thumbColor) {
+  /* width */
+  ::-webkit-scrollbar {
+    width: $width;
+    height: $height;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border-radius: $bRad;
+    background: $trackColor;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    border-radius: $bRad;
+    background: $thumbColor;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 40px;
+  @include styleScroll(10px, 10px, 0, white, black);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,9 +36,18 @@
 
 body {
   width: 100%;
+  background-color: transparent;
 }
 .homepage {
   position: relative;
+
+  hr {
+    width: 40%;
+    margin: auto;
+    height: 5px;
+    background-color: black;
+    border-radius: 1000px;
+  }
 
   .hero {
     height: calc(100vh + 20px); //testing
@@ -34,8 +69,13 @@ body {
     background-color: rgba(37, 37, 37, 0.304);
     position: fixed;
     top: 0px;
-    color:white;
-    font-weight:bold;
+    color: white;
+    font-weight: bold;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
 
     ul {
       // @include setBorder(red);
@@ -80,8 +120,8 @@ body {
     border-radius: 50px;
     width: 40%;
     cursor: pointer;
-    background-color:#23dab7;
-    border:4px solid white;
+    background-color: #23dab7;
+    border: 4px solid white;
   }
   #start-booking-btn:hover {
     background-color: black;
@@ -92,86 +132,155 @@ body {
 
   .gallery {
     // background-color: #bbe8ff;
-    background: linear-gradient(#9addff,#e3fffa);
+    background: linear-gradient(#9addff, #e3fffa);
     padding: 50px 0px;
 
-    .carousel-wrapper{
+    .carousel-wrapper {
       text-align: center;
       // @include setBorder(red);
-      width:90%;
+      width: 90%;
       margin: 0px auto 70px auto;
 
-      h1{
-        font-size:3rem;
-        padding:10px;
+      h1 {
+        font-size: 3rem;
+        padding: 10px;
       }
 
-      .carousel{
+      .carousel {
         // @include setBorder(black);
-        width:90%;
-        margin:auto;
-        display:flex;
+        width: 90%;
+        margin: auto;
+        display: flex;
         flex-flow: row wrap;
         justify-content: center;
         align-items: center;
-        
 
-        .carousel-img{
-          width:50vmin;
-          max-width:350px;
-          max-height:200px;
-          overflow: hidden;
+        .carousel-img {
+          // min-height: 140px;
+          width: 50vmin;
+          max-width: 350px;
+          // max-height:180px;
+          // overflow: hidden;
           // border-radius:10px;
-          
-          img{
-            // border-radius:10px;
-            width:100%;
-            height:auto;
-            margin:8px;
+          margin: 0px 15px 15px 0px;
+
+          img {
+            box-shadow: 3px 3px 10px gray;
+            border-radius: 10px;
+            width: 100%;
+            height: auto;
           }
         }
       }
     }
 
-    .galleryItem{
-      // @include setBorder(red);
-      display:flex;
-      flex-flow:row wrap;
-      justify-content: center;
-      align-items: center;
-      padding:20px;
+    .attractions {
+      margin-bottom: 50px;
 
-      .img-box{
-        // min-width:250px;
-        // min-height:250px;
-        width:25vmax;
-        height:25vmax;
-        border-radius:10px;
-        overflow: hidden;
-        box-shadow:5px 5px 20px gray;
-        margin: 0 30px;
-        
-        img{
-          width:100%;
-          height:auto;
+      .galleryItem {
+        // @include setBorder(red);
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+
+        .img-box {
+          // min-width:250px;
+          // min-height:250px;
+          width: 25vmax;
+          height: 25vmax;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 5px 5px 20px gray;
+          margin: 0 30px;
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        p {
+          margin: 0 30px;
+          text-align: justify;
+          width: 40vw;
+          font-size: 0.8rem;
+          line-height: 4vmin;
+          // margin:10px;
         }
       }
-      
-      p{
-        margin: 0 30px;
-        text-align: justify;
-        width:40vw;
-        font-size:0.8rem;
-        line-height: 4vmin;
-        // margin:10px;
-      }
-
     }
   }
 
   .experiences {
     background-color: burlywood;
-    height: 300px; //testing
+    text-align: center;
+    background: linear-gradient(#e3fffa, #9addff);
+    // padding: 10px 0;
+    // @include styleScroll(7px,7px,50px, rgb(197, 253, 255), rgb(0, 170, 255));
+    @include styleScroll(7px, 7px, 50px, transparent, rgb(0, 170, 255));
+
+    h1 {
+      padding: 0 10px;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .exp-carousel {
+      // @include setBorder(black);
+      width: 70%;
+      margin: 10px auto 0px auto;
+      padding: 10px 0;
+      padding-top: 35px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      overflow-x: scroll;
+
+      .exp-item {
+        // @include setBorder(#00aaff);
+        border-radius: 10px;
+        // background-color: #ffffff;
+        box-shadow: 3px 3px 10px gray;
+        text-align: right;
+        min-width: 21.5vw;
+        min-height: 21.5vw;
+        margin: 10px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+
+        .user-img-box {
+          position: absolute;
+          top: -7vmin;
+          width: 14vmin;
+          height: 14vmin;
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        .title {
+          margin-top: 20px;
+          font-size: 1.5rem;
+        }
+        .rating {
+          font-size: 1rem;
+        }
+        .desc {
+          text-align: center;
+          margin-top: 15px;
+          font-size: 0.8rem;
+        }
+      }
+    }
   }
 
   .contact {
@@ -181,8 +290,7 @@ body {
   }
 }
 
-
-
+/* MEDIA QUERIES */
 @media (max-width: 600px) {
   .homepage {
     #start-booking-btn {
@@ -191,17 +299,113 @@ body {
   }
 }
 
-@media (max-width:690px){
-  .homepage{
-    .gallery{
-      .galleryItem{
-        .img-box{
-          width:50vw;
-          height:50vw;
-          margin-bottom:20px;
+@media (max-width: 690px) {
+  .homepage {
+    .gallery {
+      .attractions {
+        .galleryItem {
+          .img-box {
+            width: 30vw;
+            height: 30vw;
+            margin-bottom: 20px;
+          }
+          p {
+            // margin:0;
+            width: 40vw;
+          }
         }
-        p{
-          width:80vw;
+      }
+    }
+
+    .experiences {
+      .exp-carousel {
+        width: 90%;
+        .exp-item {
+          min-width: 30vw;
+          min-height: 30vw;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 530px) {
+  .homepage {
+    .gallery {
+      .attractions {
+        .galleryItem {
+          .img-box {
+            width: 60vw;
+            height: 60vw;
+            margin-bottom: 20px;
+          }
+          p {
+            // margin:0;
+            width: 60vw;
+          }
+        }
+      }
+    }
+
+    .experiences {
+      .exp-carousel {
+        .exp-item {
+          min-width: 50vw;
+          min-height: 50vw;
+
+          .user-img-box {
+            top: -7vmax;
+            width: 14vmax;
+            height: 14vmax;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .homepage {
+    .gallery {
+      .carousel-wrapper {
+        .carousel {
+          .carousel-img {
+            width: 80vmin;
+          }
+        }
+      }
+
+      .attractions {
+        margin-bottom: 50px;
+
+        .galleryItem {
+          // @include setBorder(red);
+          padding: 0px 0px;
+          padding-bottom: 30px;
+
+          .img-box {
+            width: 80vmin;
+            height: 80vmin;
+          }
+
+          p {
+            width: 80vmin;
+            margin-top: 15px;
+            line-height: 6vmin;
+          }
+        }
+      }
+
+      hr {
+        width: 70vw;
+      }
+    }
+
+    .experiences {
+      .exp-carousel {
+        .exp-item {
+          min-width: 80vw;
+          min-height: 80vw;
         }
       }
     }
