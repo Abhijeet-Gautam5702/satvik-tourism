@@ -1,6 +1,6 @@
 import React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { Homepage } from "./sections/Homepage"
+import { Homepage } from "./Homepage"
 import {About} from "./sections/About"
 import { Book } from "./sections/Book"
 
