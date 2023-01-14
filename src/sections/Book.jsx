@@ -2,7 +2,7 @@ import React from "react"
 
 function Book(){
     return (
-        <h2>Book your package here</h2>
+        <h2>This section is currently under development</h2>
     )
 }
 

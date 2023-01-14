@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 import GalleryItem from "../components/galleryItem";
 import places from "../places";
 import carouselImg from "../carouselImg";
-import expData from "../expData"
-import bars from "../assets/bars-solid.svg";
-import coco from "../assets/coco.png";
+import expData from "../expData";
+import up from "../assets/up.png";
 import ExperienceItem from "../components/ExperienceItem";
 
 function Homepage() {
@@ -17,19 +16,23 @@ function Homepage() {
     navigate(`/sections/${e.target.name}`);
   }
 
-  //make navbar opaque once it reaches the booking btn
+  //make navbar and scrollToTopIcon opaque once it reaches the booking btn
   window.onscroll = () => {
+    const scrollToTopIcon=document.querySelector(".scrollToTop");
     const btn = document.querySelector("#start-booking-btn");
     const navbar = document.querySelector(".navbar");
-    //get the distance from top of the window
+    //get the distance of from top of the window
     const btnHeight = btn.getBoundingClientRect().top;
 
     if (btnHeight <= 20) {
       navbar.style.backgroundColor = "black";
       navbar.style.color = "white";
+      scrollToTopIcon.style.display = "block";
     } else {
-      navbar.style.backgroundColor = "rgba(37, 37, 37, 0.304)";
+      // navbar.style.backgroundColor = "rgba(37, 37, 37, 0.304)";
+      navbar.style.backgroundColor = "transparent";
       navbar.style.color = "white";
+      scrollToTopIcon.style.display = "none";
     }
   };
 
@@ -46,20 +49,16 @@ function Homepage() {
   });
 
   //create array of experience-items
-  const expItemElements = expData.map(item => (
-    <ExperienceItem
-      key={item.id}
-      data={item}
-    />
-  ))
+  const expItemElements = expData.map((item) => (
+    <ExperienceItem key={item.id} data={item} />
+  ));
 
   return (
     <div className="homepage">
       <nav className="navbar">
-        <div  className="logo">
-          {/* <img src={coco} alt="logo" className="logo--img" /> */}
+        <div className="logo">
           <a href="#home">
-            <h1 className="hotel-title">Satvik Tourism</h1>
+            <h1 className="hotel-title"> <span>Satvik</span> Tourism</h1>
           </a>
         </div>
         <ul id="list-container">
@@ -86,17 +85,31 @@ function Homepage() {
         <div className="attractions">{galleryImageItems}</div>
         <hr />
       </div>
-      
-
 
       <div id="exp" className="experiences">
-        <h1>Experiences of customers and families</h1>
-        <div className="exp-carousel">
-          {expItemElements}
-        </div>
+        <h1>Experiences of our customers</h1>
+        <div className="exp-carousel">{expItemElements}</div>
       </div>
+
       <div id="contact" className="contact">
         <h2>Contact section</h2>
+        <h3>Thank you for reaching out to us.</h3>
+        <p>
+          For inquiries, please feel free to call us at +91 9876 1234 locally or
+          at +91 9987 4034 from outside the country. You may also reach us via
+          WhatsApp on +91 9876 1234.
+        </p>
+      </div>
+
+      <footer>
+        developed with ❤️ by{" "}
+        <a href="https://github.com/Abhijeet-Gautam5702">Abhijeet Gautam</a>
+      </footer>
+
+      <div className="scrollToTop">
+        <a href="#home">
+          <img src={up} alt="scroll-to-top" />
+        </a>
       </div>
     </div>
   );
