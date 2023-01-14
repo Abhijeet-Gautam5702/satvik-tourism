@@ -5,7 +5,7 @@ import GalleryItem from "./components/galleryItem";
 import places from "./places";
 import carouselImg from "./carouselImg";
 import expData from "./expData";
-import up from "../assets/up.png";
+import up from "./assets/up.png";
 import ExperienceItem from "./components/ExperienceItem";
 
 function Homepage() {

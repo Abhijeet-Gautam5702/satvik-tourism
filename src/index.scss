@@ -290,6 +290,7 @@ body {
           height: 14vmin;
 
           img {
+            filter: drop-shadow(3px 3px 5px gray);
             width: 100%;
             height: auto;
           }
