@@ -1,8 +1,8 @@
 import React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Homepage } from "./Homepage"
-import {About} from "./sections/About"
-import { Book } from "./sections/Book"
+import {About} from "./About"
+import { Book } from "./Book"
 
 function App() {
 

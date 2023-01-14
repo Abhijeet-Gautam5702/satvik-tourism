@@ -1,12 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import GalleryItem from "./components/galleryItem";
+import GalleryItem from "./GalleryItem";
 import places from "./places";
 import carouselImg from "./carouselImg";
 import expData from "./expData";
 import up from "./assets/up.png";
-import ExperienceItem from "./components/ExperienceItem";
+import ExperienceItem from "./ExperienceItem";
 
 function Homepage() {
   //navigate to other pages
