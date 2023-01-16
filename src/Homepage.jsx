@@ -18,7 +18,7 @@ function Homepage() {
 
   //make navbar and scrollToTopIcon opaque once it reaches the booking btn
   window.onscroll = () => {
-    const scrollToTopIcon=document.querySelector(".scrollToTop");
+    const scrollToTopIcon = document.querySelector(".scrollToTop");
     const btn = document.querySelector("#start-booking-btn");
     const navbar = document.querySelector(".navbar");
     //get the distance of from top of the window
@@ -58,7 +58,10 @@ function Homepage() {
       <nav className="navbar">
         <div className="logo">
           <a href="#home">
-            <h1 className="hotel-title"> <span>Satvik</span> Tourism</h1>
+            <h1 className="hotel-title">
+              {" "}
+              <span>Satvik</span> Tourism
+            </h1>
           </a>
         </div>
         <ul id="list-container">
@@ -71,7 +74,13 @@ function Homepage() {
         </ul>
       </nav>
 
-      <div className="hero" id="home"></div>
+      <div className="hero" id="home">
+        <p>
+          God's own country
+        </p>
+        {/* <h1>Kerela</h1>
+        <p>God's own country</p> */}
+      </div>
 
       <button name="book" id="start-booking-btn" onClick={handleNavigate}>
         Book your package now
