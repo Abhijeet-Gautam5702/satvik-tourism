@@ -29,8 +29,8 @@ function Homepage() {
       navbar.style.color = "white";
       scrollToTopIcon.style.display = "block";
     } else {
-      // navbar.style.backgroundColor = "rgba(37, 37, 37, 0.304)";
-      navbar.style.backgroundColor = "transparent";
+      navbar.style.backgroundColor = "rgba(0,0,0,0.4)";
+      // navbar.style.backgroundColor = "transparent";
       navbar.style.color = "white";
       scrollToTopIcon.style.display = "none";
     }
