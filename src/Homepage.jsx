@@ -12,8 +12,7 @@ function Homepage() {
   //navigate to other pages
   const navigate = useNavigate();
   function handleNavigate(e) {
-    console.log(e.target);
-    navigate(`/sections/${e.target.name}`);
+    navigate(`/${e.target.name}`);
   }
 
   //make navbar and scrollToTopIcon opaque once it reaches the booking btn
