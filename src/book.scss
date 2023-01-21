@@ -3,41 +3,54 @@
 .booking--wrapper {
   width: 100%;
   height: max-content;
-  background-color: rgba($color: rgb(152, 217, 255), $alpha: 0.6);
+  background-color: rgba(115, 115, 115, 0.4);
   padding-top: 50px; //testing
 
+  input {
+    font-size: 1.3rem;
+    padding: 8px 13px;
+    border: none;
+    border-radius: 5px;
+  }
+  input:focus {
+    outline: none;
+  }
+
+  h2 {
+    font-family: "Dancing Script", cursive;
+    font-size: 3.5rem;
+    grid-column: span 2;
+    text-align: center;
+  }
+  .txt {
+    margin-top: 20px;
+    // margin-bottom:2px;
+    //   font-family: "Dancing Script", cursive;
+    grid-column: span 2;
+    //   text-align: center;
+    font-size: 1rem;
+    //   font-weight: bolder;
+  }
+
   .personal-info {
-    @include setBorder(red);
+    // @include setBorder(red);
     width: 70%;
     margin: auto;
-    margin-bottom:400px;
+    margin-bottom: 20px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-columns: minmax("fit-content", auto);
+    //testing
+    grid-template-columns: repeat(2, 50%);
+    // grid-auto-columns: minmax("fit-content", auto);
+    grid-auto-rows: minmax(auto,auto);
     grid-gap: 10px 6px;
 
-    h2 {
-      font-family: "Dancing Script", cursive;
-      font-size: 3.5rem;
-      grid-column: span 2;
-      text-align: center;
-    }
-    .txt {
-        margin-top:20px;
-        margin-bottom:2px;
-    //   font-family: "Dancing Script", cursive;
-      grid-column: span 2;
-    //   text-align: center;
-      font-size:1.1rem;
-    //   font-weight: bolder;
-    }
-    input {
-      font-size: 1.3rem;
-      padding: 8px 13px;
-      border: none;
-      border-radius: 5px;
-    }
-    .username {
+    // input {
+    //   font-size: 1.3rem;
+    //   padding: 8px 13px;
+    //   border: none;
+    //   border-radius: 5px;
+    // }
+    .username,.contact {
       grid-column: span 1;
     }
     .next-btn {
@@ -46,8 +59,30 @@
       padding: 0.6rem 2rem;
       cursor: pointer;
       margin: 20px 0;
-      font-size:1.1rem;
+      font-size: 1.1rem;
+    }
+
+    @media  screen and (max-width:600px) {
+      // @include setBorder(red);
+      width:90%;
+      .username,.contact{
+        grid-column: span 2;
+      }
+
     }
   }
 
+  .select-package{
+    width: 70%;
+    @include setBorder(blue);
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 10px 6px;
+    
+    h2{
+      grid-column:span 3;
+      margin-bottom:20px;
+    }
+  }
 }
